@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- vim:fdl=1:
+-->
+<templates id="template" xml:space="preserve"> 
+
+<t t-extend="Product" name="ProductStockWidget">
+    <t t-jquery="div.product-img" t-operation="replace">
+        <div class="product-img">
+                <img t-att-src='image_url' /> 
+                <t t-if="!product.to_weight">
+                    <span class="price-tag">
+                        <t t-esc="widget.format_currency(product.price)"/>
+                    </span> 
+                    <t t-if="widget.pos.config.show_qty_on_pos">
+                        <t t-if="product.qty_available>=0">
+                            <span class="product-qty" >
+                                <t t-esc="product.qty_available"/>                     
+                            </span>                     
+                        </t>
+                        <t t-if="product.qty_available&lt;0">
+                            <span class="product-qty-low" >
+                                <t t-esc="product.qty_available"/>
+                            </span>                     
+                        </t>
+                    </t>    
+                </t>
+                <t t-if="product.to_weight">
+                    <span class="price-tag">
+                        <t t-esc="widget.format_currency(product.price)+'/Kg'"/>
+                    </span>
+                    <t t-if="widget.pos.config.show_qty_on_pos">
+                        <t t-if="product.qty_available>=0">
+                            <span class="product-qty" >
+                                <t t-esc="product.qty_available + ' Kgs'"/>                        
+                            </span>                     
+                        </t>
+                        <t t-if="product.qty_available&lt;0">
+                            <span class="product-qty-low" >
+                                <t t-esc="product.qty_available + ' Kgs'"/>
+                            </span>                     
+                        </t>
+                    </t>  
+                </t>
+            </div>        
+    </t>
+</t>
+
+</templates>
+
+    
+    
