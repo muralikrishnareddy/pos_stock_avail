@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        
+        
+        <record model="ir.ui.view" id="view_pos_config_form_inh_posstock">
+            <field name="name">pos.config.form.view.inh.posstock</field>
+            <field name="model">pos.config</field>
+	    <field name="inherit_id" ref="point_of_sale.view_pos_config_form"/>
+            <field name="arch" type="xml">
+                <field name="iface_big_scrollbars" position="after">
+		    <field name="show_qty_on_pos" />
+                </field>
+	    </field>
+	</record>
+	
+	 <template id="pos_stock_extend" name="pos_stock" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/pos_stock_avail/static/src/js/pos_stock.js"></script>               
+            </xpath>
+        </template>
+
+    </data>
+</openerp>
