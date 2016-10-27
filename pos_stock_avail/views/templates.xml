@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- vim:fdn=3:
+-->
+<openerp>
+    <data>
+
+
+ <template id="assets" inherit_id='point_of_sale.assets' name="Stock Index">&lt;!DOCTYPE html&gt;            
+            <xpath expr="//link[@id='pos-stylesheet']" position="after">
+                <link rel="stylesheet" href="/pos_stock_avail/static/src/css/style.css" />
+            </xpath>
+        </template>
+
+    </data>
+</openerp>
+
